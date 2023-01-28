@@ -1,0 +1,76 @@
+.card {
+    position: relative;
+    width: 150px;
+    height: 242px;
+    z-index: 1;
+    cursor: pointer;
+    margin: 20px;
+    padding: 35px;
+    user-select: none;
+    border-radius: 5px;
+}
+
+.card_active {
+    cursor: auto;
+}
+
+.card__back, .card__front {
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.6);
+    left: 0;
+    top: 0;
+    border-radius: 5px;
+    transition: 1s;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    background-color: #210018;
+}
+
+.card__back {
+    position: absolute;
+    background: linear-gradient(#5F0A87, #A4508B);
+    background-image: url("./pattern_card.svg");
+    transform: scaleX(1);
+    z-index: 2;
+}
+
+.card__front {
+    position: absolute;
+    z-index: 1;
+    transform: scaleX(-1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card__front span {
+    font-size: 1.3rem;
+    background-image: linear-gradient(
+      to right,
+      #542c29 0,
+      #cb9b51 22%, 
+      #f6e27a 45%,
+      #f6f2c0 50%,
+      #f6e27a 55%,
+      #cb9b51 78%,
+      #542c29 100%
+	);
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    text-align: center;
+}
+
+.card__front span::first-letter{
+    text-transform: uppercase;
+}
+
+.card_active .card__back{
+    transform: scaleX(-1);
+    z-index: 1;
+}
+
+.card_active .card__front{
+    transform: scaleX(1);
+    z-index: 2;
+}
